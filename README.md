@@ -1,5 +1,7 @@
 1-A) El tiempo es variable, a veces puede variar por unos milisegundos más o menos. Sin embargo, el primero siempre llega en los primeros 5 segundos y el segundo en los primeros 4. Es predecible luego de varias ejecuciones
+
 B) Luego de comparar el tiempo de ejecución mio y de un compañero, son distintos.
+
 C) En realidad, no hubo ningún cambio significativo al ejecutarlo, ya sea con o sin comentarios; el tiempo se mantiene en el rango de 0.006 a 0.009 segundos.
 
 2-A)
