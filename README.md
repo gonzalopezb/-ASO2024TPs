@@ -2,7 +2,7 @@
 
 B) Luego de comparar el tiempo de ejecución mio y de un compañero, son distintos.
 
-C) En realidad, no hubo ningún cambio significativo al ejecutarlo, ya sea con o sin comentarios; el tiempo se mantiene en el rango de 0.006 a 0.009 segundos.
+C) Descomentar las líneas en el script suma_resta.py añadió funcionalidad sin introducir problemas de concurrencia en este contexto específico y sin afectar significativamente el tiempo de ejecución. Sin embargo, este ejercicio ilustra la importancia de comprender y manejar las zonas críticas y el race condition en programas concurrentes para asegurar resultados consistentes y correctos.
 
 2-A)
 ```
@@ -65,4 +65,5 @@ int main(int argc, char *argv[])
 }
 ```
 
-B) ![image](https://github.com/gonzalopezb/-ASO2024TPs/assets/166421698/e87d3de2-988c-4e31-9a5b-6197d88bc9ff)
+B) ![anvorguesas](https://github.com/gonzalopezb/-ASO2024TPs/assets/166421698/7ac67515-5fd1-4bc2-a9e7-f56774aa12c3)
+
