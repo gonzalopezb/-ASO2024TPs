@@ -60,7 +60,8 @@ int main(int argc, char argv[])
 }
 ```
 
-B)![anvorguesas](https://github.com/gonzalopezb/-ASO2024TPs/assets/166421698/5b4a5048-2f6b-4216-b946-0693342aae90)
+B) ![anvorguesas](https://github.com/gonzalopezb/-ASO2024TPs/assets/166421698/10b0b9d4-fd91-4cbe-85ae-ae6958b24663)
+
 
 
 
