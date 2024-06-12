@@ -9,44 +9,44 @@ C) Descomentar las líneas en el script suma_resta.py añadió funcionalidad sin
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
-
 #define NUMBER_OF_THREADS 2
 #define CANTIDAD_INICIAL_HAMBURGUESAS 20
-
 int cantidad_restante_hamburguesas = CANTIDAD_INICIAL_HAMBURGUESAS;
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+int turno = 0;
 
-void *comer_hamburguesa(void *tid)
+void comer_hamburguesa(voidtid)
 {
-    while (1)
+    while (1 == 1)
     { 
-        pthread_mutex_lock(&mutex);
+        while (turno != (int) tid);
+        // INICIO DE LA ZONA CRÍTICA
         if (cantidad_restante_hamburguesas > 0)
         {
-            printf("Hola! soy el hilo (comensal) %d, me voy a comer una hamburguesa! Todavía quedan %d\n", (int)(intptr_t)tid, cantidad_restante_hamburguesas);
-            cantidad_restante_hamburguesas--;
+            printf("Hola! soy el hilo(comensal) %d , me voy a comer una hamburguesa ! ya que todavia queda/n %d \n", (int) tid, cantidad_restante_hamburguesas);
+            cantidad_restante_hamburguesas--; // me como una hamburguesa
         }
         else
         {
-            printf("¡SE TERMINARON LAS HAMBURGUESAS! :( \n");
-            pthread_mutex_unlock(&mutex);
-            pthread_exit(NULL);
+            printf("SE TERMINARON LAS HAMBURGUESAS \n");
+        turno = (turno + 1) % NUMBER_OF_THREADS;
+            pthread_exit(NULL); // forzar terminacion del hilo
         }
-        pthread_mutex_unlock(&mutex);
+        // SALIDA DE LA ZONA CRÍTICA
+turno = (turno + 1) % NUMBER_OF_THREADS;
     }
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char argv[])
 {
     pthread_t threads[NUMBER_OF_THREADS];
     int status, i, ret;
-    for (i = 0; i < NUMBER_OF_THREADS; i++)
+    for (int i = 0; i < NUMBER_OF_THREADS; i++)
     {
-        status = pthread_create(&threads[i], NULL, comer_hamburguesa, (void *)(intptr_t)i);
+        printf("Hola!, soy el hilo principal. Estoy creando el hilo %d \n", i);
+        status = pthread_create(&threads[i], NULL, comer_hamburguesa, (void)i);
         if (status != 0)
         {
-            printf("Algo salió mal al crear el hilo. Recibí el código de error %d\n", status);
+            printf("Algo salio mal, al crear el hilo recibi el codigo de error %d \n", status);
             exit(-1);
         }
     }
@@ -54,16 +54,13 @@ int main(int argc, char *argv[])
     for (i = 0; i < NUMBER_OF_THREADS; i++)
     {
         void *retval;
-        ret = pthread_join(threads[i], &retval);
-        if (ret != 0)
-        {
-            printf("Error al esperar la terminación del hilo %d\n", i);
-            exit(-1);
-        }
+        ret = pthread_join(threads[i], &retval); // espero por la terminacion de los hilos que cree
     }
-    pthread_exit(NULL);
+    pthread_exit(NULL); // como los hilos que cree ya terminaron de ejecutarse, termino yo tambien.
 }
 ```
 
-B) ![anvorguesas](https://github.com/gonzalopezb/-ASO2024TPs/assets/166421698/7ac67515-5fd1-4bc2-a9e7-f56774aa12c3)
+B)![anvorguesas](https://github.com/gonzalopezb/-ASO2024TPs/assets/166421698/5b4a5048-2f6b-4216-b946-0693342aae90)
+
+
 
